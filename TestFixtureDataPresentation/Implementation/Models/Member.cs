@@ -7,10 +7,10 @@ namespace TestFixtureDataPresentation.Implementation.Models
         public Member(string name, State state, DateTime dob)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentOutOfRangeException("name", "Please supply a name");
+                throw new ArgumentOutOfRangeException(nameof(name), "Please supply a name");
             // Yes DateTime.Now should generally be abstracted away - this is demo code
             if (dob > DateTime.Now.Date)
-                throw new ArgumentOutOfRangeException("dob", "Please supply a date of birth in the past");
+                throw new ArgumentOutOfRangeException(nameof(dob), "Please supply a date of birth in the past");
 
             Name = name;
             State = state;

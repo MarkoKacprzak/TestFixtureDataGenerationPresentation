@@ -9,10 +9,7 @@ namespace TestFixtureDataPresentation.Tests._02_ObjectMother
 {
     class DemographicTests
     {
-        private static IEnumerable<State> AllStates()
-        {
-            return Enum.GetValues(typeof(State)).Cast<int>().Select(s => (State)s).ToArray();
-        }
+        private static IEnumerable<State> AllStates() => Enum.GetValues(typeof(State)).Cast<int>().Select(s => (State)s).ToArray();
 
         [Test]
         public void GivenDemographicForAllMembers_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrue()
@@ -28,7 +25,7 @@ namespace TestFixtureDataPresentation.Tests._02_ObjectMother
         [Test]
         [Combinatorial]
         public void GivenDemographicForAnyAgeAndSpecificState_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrueOnlyIfMemberIsInThatState
-            ([ValueSource("AllStates")] State memberState, [ValueSource("AllStates")] State demographicState)
+            ([ValueSource(nameof(AllStates))] State memberState, [ValueSource(nameof(AllStates))] State demographicState)
         {
             var member = ObjectMother.Members.ForState(memberState);
             var demographic = ObjectMother.Demographics.ForState(demographicState);
@@ -69,7 +66,7 @@ namespace TestFixtureDataPresentation.Tests._02_ObjectMother
         [Test]
         [Combinatorial]
         public void GivenDemographicWithStateAndAgeRange_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrueOnlyIfTheMemberConformsToAllParameters
-            ([Range(1, 25)] int age, [ValueSource("AllStates")] State state)
+            ([Range(1, 25)] int age, [ValueSource(nameof(AllStates))] State state)
         {
             var now = DateTime.UtcNow;
             var member = ObjectMother.Members.WithAgeAndState(age, now, state);

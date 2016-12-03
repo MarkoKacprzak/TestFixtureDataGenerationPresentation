@@ -20,10 +20,7 @@ namespace TestFixtureDataPresentation.Implementation.Models
             if (StartDate > now)
                 return CampaignStatus.NotStarted;
 
-            if (EndDate < now)
-                return CampaignStatus.Running;
-
-            return CampaignStatus.Ended;
+            return EndDate < now ? CampaignStatus.Running : CampaignStatus.Ended;
         }
     }
 

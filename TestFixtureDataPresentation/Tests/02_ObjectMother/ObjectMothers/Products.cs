@@ -7,10 +7,7 @@ namespace TestFixtureDataPresentation.Tests._02_ObjectMother.ObjectMothers
     {
         public static class Products
         {
-            public static Product NoCampaign
-            {
-                get { return new Product("Product with no campaign"); }
-            }
+            public static Product NoCampaign => new Product("Product with no campaign");
 
             public static Product NotStarted(DateTime now)
             {

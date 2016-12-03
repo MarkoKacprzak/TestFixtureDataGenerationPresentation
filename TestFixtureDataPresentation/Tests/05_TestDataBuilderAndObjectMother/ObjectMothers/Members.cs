@@ -6,10 +6,7 @@ namespace TestFixtureDataPresentation.Tests._05_TestDataBuilderAndObjectMother.O
     {
         public static class Members
         {
-            public static MemberBuilder Fred
-            {
-                get { return new MemberBuilder(); }
-            }
+            public static MemberBuilder Fred => new MemberBuilder();
         }
     }
 }

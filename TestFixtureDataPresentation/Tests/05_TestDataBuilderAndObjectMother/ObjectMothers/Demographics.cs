@@ -6,15 +6,9 @@ namespace TestFixtureDataPresentation.Tests._05_TestDataBuilderAndObjectMother.O
     {
         public static class Demographics
         {
-            public static DemographicBuilder Blank
-            {
-                get { return new DemographicBuilder(); }
-            }
+            public static DemographicBuilder Blank => new DemographicBuilder();
 
-            public static DemographicBuilder AllMembers
-            {
-                get { return new DemographicBuilder().ForAllMembers(); }
-            }
+            public static DemographicBuilder AllMembers => new DemographicBuilder().ForAllMembers();
         }
     }
 }

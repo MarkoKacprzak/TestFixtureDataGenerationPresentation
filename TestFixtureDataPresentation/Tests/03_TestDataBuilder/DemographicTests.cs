@@ -28,7 +28,7 @@ namespace TestFixtureDataPresentation.Tests._03_TestDataBuilder
         [Test]
         [Combinatorial]
         public void GivenDemographicForAnyAgeAndSpecificState_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrueOnlyIfMemberIsInThatState
-            ([ValueSource("AllStates")] State memberState, [ValueSource("AllStates")] State demographicState)
+            ([ValueSource(nameof(AllStates))] State memberState, [ValueSource(nameof(AllStates))] State demographicState)
         {
             var member = new MemberBuilder().InState(memberState).Build();
             var demographic = new DemographicBuilder().ForState(demographicState).Build();
@@ -69,7 +69,7 @@ namespace TestFixtureDataPresentation.Tests._03_TestDataBuilder
         [Test]
         [Combinatorial]
         public void GivenDemographicWithStateAndAgeRange_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrueOnlyIfTheMemberConformsToAllParameters
-            ([Range(1, 25)] int age, [ValueSource("AllStates")] State state)
+            ([Range(1, 25)] int age, [ValueSource(nameof(AllStates))] State state)
         {
             var now = DateTime.UtcNow;
             var member = new MemberBuilder()

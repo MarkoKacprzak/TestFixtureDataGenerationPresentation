@@ -27,7 +27,7 @@ namespace TestFixtureDataPresentation.Tests._01_NewingUp
         [Test]
         [Combinatorial]
         public void GivenDemographicForAnyAgeAndSpecificState_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrueOnlyIfMemberIsInThatState
-            ([ValueSource("AllStates")] State memberState, [ValueSource("AllStates")] State demographicState)
+            ([ValueSource(nameof(AllStates))] State memberState, [ValueSource(nameof(AllStates))] State demographicState)
         {
             var member = new Member("Name", memberState, new DateTime(1970, 1, 1));
             var demographic = new Demographic(demographicState, null, null);
@@ -68,7 +68,7 @@ namespace TestFixtureDataPresentation.Tests._01_NewingUp
         [Test]
         [Combinatorial]
         public void GivenDemographicWithStateAndAgeRange_WhenCheckingIfTheDemographicAppliesToAMember_ThenReturnTrueOnlyIfTheMemberConformsToAllParameters
-            ([Range(1, 25)] int age, [ValueSource("AllStates")] State state)
+            ([Range(1, 25)] int age, [ValueSource(nameof(AllStates))] State state)
         {
             var now = DateTime.UtcNow;
             var member = new Member("Name", state, now.AddYears(-age));

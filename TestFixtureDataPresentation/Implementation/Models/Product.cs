@@ -11,7 +11,7 @@ namespace TestFixtureDataPresentation.Implementation.Models
         public Product(string name)
         {
             if (string.IsNullOrWhiteSpace(name))
-                throw new ArgumentOutOfRangeException("name", "Please specify a name");
+                throw new ArgumentOutOfRangeException(nameof(name), "Please specify a name");
             Name = name;
         }
 

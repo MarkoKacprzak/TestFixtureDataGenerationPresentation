@@ -15,7 +15,7 @@ namespace TestFixtureDataPresentation.Implementation.Models
         public int? MinimumAge { get; protected set; }
         public int? MaximumAge { get; protected set; }
 
-        public static Demographic AllMembers { get{ return new Demographic(null, null, null); } }
+        public static Demographic AllMembers => new Demographic(null, null, null);
 
         public bool Contains(Member member, DateTime now)
         {
